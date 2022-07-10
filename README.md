@@ -1,7 +1,7 @@
 # ExtraPhrase
 
 This repository contains data used in experiments reported in 
-> [ExtraPhrase: Efficient Data Augmentation for Abstractive Summarization](https://arxiv.org/abs/2201.05313)
+> [ExtraPhrase: Efficient Data Augmentation for Abstractive Summarization](https://aclanthology.org/2022.naacl-srw.3/)
 
 > Mengsay Loem, Sho Takase, Masahiro Kaneko, and Naoaki Okazaki
 
