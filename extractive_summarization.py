@@ -2,6 +2,21 @@ import json
 import spacy
 import argparse
 
+def get_max_depth(token):
+    if not list(token.children):
+        return 0
+    else:
+        return 1 + max(get_max_depth(child) for child in token.children)
+
+def prune_tree(token, max_depth):
+    if max_depth == 0:
+        return []
+    else:
+        subtree = [token]
+        for child in token.children:
+            subtree.extend(prune_tree(child, max_depth - 1))
+        return subtree
+
 def extractive_summarization(input_file, depth_ratio, group_tokens, output_file):
     nlp = spacy.load("en_core_web_sm")
     final_output = []
@@ -17,9 +32,14 @@ def extractive_summarization(input_file, depth_ratio, group_tokens, output_file)
         for sentence in sentences:
             doc = nlp(sentence)
             subtree = set()  # Using a set to avoid duplicates
+            
             for token in doc:
                 if token.dep_ in ['nsubj', 'ROOT', 'dobj']:
-                    subtree.add(token)
+                    max_depth = get_max_depth(token)
+                    prune_depth = int(max_depth * depth_ratio)
+                    pruned_subtree = prune_tree(token, prune_depth)
+                    
+                    subtree.update(pruned_subtree)
                     if group_tokens:
                         subtree.update([child for child in token.children])
                 
