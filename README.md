@@ -1,15 +1,18 @@
 # ExtraPhrase
 
-This repository contains data used in experiments reported in 
+This repository contains the code for generating pseudo summary data using the ExtraPhrase method as proposed in the paper:
 > [ExtraPhrase: Efficient Data Augmentation for Abstractive Summarization](https://aclanthology.org/2022.naacl-srw.3/)
 
 > Mengsay Loem, Sho Takase, Masahiro Kaneko, and Naoaki Okazaki
 
-> Proceedings of the 2022 NAACL-HLT: Student Research Workshop 
+> In Proceedings of the 2022 Conference of the North American Chapter of the Association for Computational Linguistics: Human Language Technologies: Student Research Workshop, pages 16–24, Hybrid: Seattle, Washington + Online. Association for Computational Linguistics.
+
+## Sample Data
 
 Gigaword: [data](https://drive.google.com/file/d/1WjaTJ8VgNhqRzyrcaC2fFwsBms1urT94/view?usp=sharing)
 
 CNN/DailyMail: [data](https://drive.google.com/file/d/1szjs_U-mxCPXDgJcxgmKe88-F33xOuXD/view?usp=sharing)
+
 
 ## How to Use the Code
 
